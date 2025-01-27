@@ -16,8 +16,6 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             TaskManagementTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                }
                 TaskScreen()
             }
         }

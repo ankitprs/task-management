@@ -5,11 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Button
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
@@ -68,12 +64,6 @@ fun TaskDialog(
                     isError = title.isBlank(),
                     supportingText = {
                         if (title.isBlank()) Text("Title cannot be empty")
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.Check,
-                            contentDescription = "Title Icon"
-                        )
                     }
                 )
 
@@ -84,16 +74,6 @@ fun TaskDialog(
                     label = { Text("Task Description") },
                     placeholder = { Text("Enter task description") },
                     modifier = Modifier.fillMaxWidth(),
-                    isError = description.isBlank(),
-                    supportingText = {
-                        if (description.isBlank()) Text("Description cannot be empty")
-                    },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Default.Info,
-                            contentDescription = "Description Icon"
-                        )
-                    }
                 )
 
                 // Action Buttons

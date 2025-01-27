@@ -22,7 +22,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun SettingSheet(
     onCrashDatabase: () -> Unit,
-    onSwitchApiList: () -> Unit
+    onSwitchApiList: () -> Unit,
+    onDeleteAllTasks: () -> Unit
 ) {
     val context = LocalContext.current
 
@@ -49,6 +50,12 @@ fun SettingSheet(
             title = "Switch API List",
             description = "Toggle between API lists for debugging.",
             onClick = onSwitchApiList
+        )
+
+        SettingItem(
+            title = "Delete All Tasks",
+            description = "Delete all tasks from the database.",
+            onClick = onDeleteAllTasks
         )
 
         SettingItem(
