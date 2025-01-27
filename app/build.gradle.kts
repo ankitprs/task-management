@@ -68,6 +68,12 @@ dependencies {
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
 
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-perf")
+
 
     // Dependency injection
     implementation("com.google.dagger:hilt-android:2.51.1")
@@ -76,7 +82,7 @@ dependencies {
 
     // Networking Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
 
     // Room Database
     val room_version = "2.6.1"
@@ -85,8 +91,6 @@ dependencies {
     kapt("androidx.room:room-compiler:$room_version")
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
-    // optional - Paging 3 Integration
-    implementation("androidx.room:room-paging:$room_version")
     // optional - Test helpers
     testImplementation("androidx.room:room-testing:$room_version")
 }

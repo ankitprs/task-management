@@ -2,8 +2,12 @@ package com.aicallvaani.taskmanagement.di
 
 import android.app.Application
 import android.content.Context
+import com.aicallvaani.taskmanagement.data.analytics.AnalyticsHelper
 import com.aicallvaani.taskmanagement.data.api.RetrofitInstance
 import com.aicallvaani.taskmanagement.data.repository.TodoApiRepository
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -25,5 +29,13 @@ object AppModule {
     @Singleton
     fun provideTodoApiRepository(): TodoApiRepository {
         return TodoApiRepository(RetrofitInstance.api)
+    }
+
+    // google analytics
+    @Provides
+    @Singleton
+    fun provideAnalyticsHelper(): AnalyticsHelper {
+        val firebaseAnalytics: FirebaseAnalytics = Firebase.analytics
+        return AnalyticsHelper(firebaseAnalytics)
     }
 }
