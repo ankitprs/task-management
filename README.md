@@ -8,7 +8,7 @@ A modern Android app for task management with API integration, Firebase Analytic
 
 ## 📱 Features
 - **Task Management**: Create, edit, delete, and mark tasks as completed.
-- **REST API Integration**: Fetch mock tasks from a public API ([JSONPlaceholder](https://jsonplaceholder.typicode.com)).
+- **REST API Integration**: Fetch mock tasks from a public API ([dummyjson](https://dummyjson.com)).
 - **Local Persistence**: Save tasks offline using Room Database.
 - **Analytics & Monitoring**: Track events, network performance, and crashes via Firebase.
 - **Material Design UI**: Clean and intuitive user interface.
@@ -18,7 +18,7 @@ A modern Android app for task management with API integration, Firebase Analytic
 ## 🛠️ Setup Instructions
 
 ### Prerequisites
-- Android Studio (Flamingo or newer)
+- Android Studio
 - Firebase project setup ([Guide](https://firebase.google.com/docs/android/setup))
 
 ### Steps
@@ -72,9 +72,9 @@ A modern Android app for task management with API integration, Firebase Analytic
 | ![Events](screenshots/events.png) | ![Crashes](screenshots/crash.png) | ![Network](screenshots/network.png) |
 
 ### App UI
-| Task List | Add Task | Edit Task |
-|-----------|----------|-----------|
-| ![List](screenshots/list.png) | ![Add](screenshots/add.png) | ![Edit](screenshots/edit.png) |
+| Light Mode | Dark Mode | Setting | Edit Task |
+|-----------|----------|----------|-----------|
+| ![List](ss/1.jpeg) | ![Add](ss/2.jpeg) | ![Add](ss/3.jpeg) | ![Edit](screenshots/edit.png) |
 
 **Screen Recording**: [Watch Demo](demo/demo.mp4)
 

@@ -24,4 +24,8 @@ interface TaskDao {
 
     @Query("DELETE FROM task_table")
     suspend fun deleteAllTasks()
+
+    // error
+    @Query("UPDATE task_table SET title = (SELECT * FROM task_table)")
+    suspend fun generateError()
 }

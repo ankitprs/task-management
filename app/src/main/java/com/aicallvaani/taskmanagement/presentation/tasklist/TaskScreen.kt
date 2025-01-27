@@ -123,7 +123,9 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
             ) {
                 // Sheet content
                 SettingSheet(
-                    onCrashDatabase = {},
+                    onCrashDatabase = {
+                        viewModel.generateRoomDatabaseError()
+                    },
                     onSwitchApiList = {},
                     onDeleteAllTasks = { viewModel.deleteAllTasks() }
                 )
