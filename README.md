@@ -72,9 +72,9 @@ A modern Android app for task management with API integration, Firebase Analytic
 | ![Events](screenshots/events.png) | ![Crashes](screenshots/crash.png) | ![Network](screenshots/network.png) |
 
 ### App UI
-| Light Mode | Dark Mode | Setting | Edit Task |
+| Light Mode | Dark Mode | Add Task | Setting |
 |-----------|----------|----------|-----------|
-| ![List](ss/1.jpeg) | ![Add](ss/2.jpeg) | ![Add](ss/3.jpeg) | ![Edit](screenshots/edit.png) |
+| ![Light](images/1.jpeg) | ![Dark](images/2.jpeg) | ![Add](images/3.jpeg) | ![Setting](images/4.jpeg) |
 
 **Screen Recording**: [Watch Demo](demo/demo.mp4)
 

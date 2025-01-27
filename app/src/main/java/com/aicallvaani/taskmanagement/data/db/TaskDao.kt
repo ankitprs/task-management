@@ -5,7 +5,6 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -19,13 +18,10 @@ interface TaskDao {
     @Query("UPDATE task_table SET isCompleted = :isCompleted WHERE id = :taskId")
     suspend fun toggleIsCompleted(taskId: Int, isCompleted: Boolean)
 
-    @Delete
-    suspend fun deleteTask(task: Task)
-
     @Query("DELETE FROM task_table")
     suspend fun deleteAllTasks()
 
     // error
-    @Query("UPDATE task_table SET title = (SELECT * FROM task_table)")
-    suspend fun generateError()
+    @Delete
+    suspend fun generateError(task: Task)
 }

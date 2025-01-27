@@ -8,11 +8,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.rounded.Add
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LargeTopAppBar
@@ -28,16 +25,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.aicallvaani.taskmanagement.data.db.Task
 import com.aicallvaani.taskmanagement.presentation.components.SettingSheet
 import com.aicallvaani.taskmanagement.presentation.components.TaskDialog
 import com.aicallvaani.taskmanagement.presentation.components.TaskItem
-import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,8 +45,9 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
     val tasks by viewModel.tasks.collectAsState(initial = emptyList())
     var showDialog by remember { mutableStateOf(false) }
     val sheetState = rememberModalBottomSheetState()
-    val scope = rememberCoroutineScope()
     var showBottomSheet by remember { mutableStateOf(false) }
+
+    var editableTask by remember { mutableStateOf<Task?>(null) }
 
     Scaffold(
         floatingActionButton = {
@@ -92,11 +89,12 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
         ) {
             if (showDialog) {
                 TaskDialog(
-                    onAddTask = { title, description ->
-                        viewModel.addTask(title, description)
+                    editableTask,
+                    onAddTask = {title, description ->
+                        viewModel.addTask(title, description, editableTask)
                         showDialog = false
                     },
-                    onDismiss = { showDialog = false }
+                    onDismiss = { showDialog = false; editableTask = null }
                 )
             }
 
@@ -105,7 +103,7 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
                     val task = tasks[index]
                     TaskItem(
                         task = task,
-                        onDelete = { viewModel.deleteTask(it) },
+                        onEditTask = { showDialog = true; editableTask = task },
                         onToggleComplete = {
                             viewModel.toggleTaskCompletion(task.id, task.title, !task.isCompleted)
                         }

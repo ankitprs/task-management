@@ -20,14 +20,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
+import com.aicallvaani.taskmanagement.data.db.Task
 
 @Composable
 fun TaskDialog(
+    editableTask: Task?,
     onAddTask: (String, String) -> Unit,
     onDismiss: () -> Unit
 ) {
-    var title by remember { mutableStateOf("") }
-    var description by remember { mutableStateOf("") }
+    var title by remember { mutableStateOf(editableTask?.title ?: "") }
+    var description by remember { mutableStateOf(editableTask?.description ?: "") }
     val isFormValid = title.isNotBlank()
 
     Dialog(onDismissRequest = onDismiss) {

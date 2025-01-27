@@ -9,8 +9,6 @@ class TaskRepository (private val taskDao: TaskDao) {
 
     suspend fun insert(task: Task) = taskDao.insertTask(task)
 
-    suspend fun delete(task: Task) = taskDao.deleteTask(task)
-
     suspend fun deleteAll() = taskDao.deleteAllTasks()
 
     suspend fun toggleTaskCompletion(taskId: Int, isCompleted: Boolean) {
@@ -18,6 +16,6 @@ class TaskRepository (private val taskDao: TaskDao) {
     }
 
     suspend fun generateError() {
-        taskDao.generateError()
+        taskDao.generateError(Task())
     }
 }
