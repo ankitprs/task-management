@@ -34,8 +34,8 @@ object AppModule {
     // google analytics
     @Provides
     @Singleton
-    fun provideAnalyticsHelper(): AnalyticsHelper {
-        val firebaseAnalytics: FirebaseAnalytics = Firebase.analytics
+    fun provideAnalyticsHelper(context: Context): AnalyticsHelper {
+        val firebaseAnalytics: FirebaseAnalytics = FirebaseAnalytics.getInstance(context)
         return AnalyticsHelper(firebaseAnalytics)
     }
 }

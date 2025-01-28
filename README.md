@@ -76,6 +76,8 @@ A modern Android app for task management with API integration, Firebase Analytic
 |-----------|----------|----------|-----------|
 | ![Light](images/1.jpeg) | ![Dark](images/2.jpeg) | ![Add](images/3.jpeg) | ![Setting](images/4.jpeg) |
 
+
+**Crash Screen Recording**: [Watch Demo](images/demo.mp4)
 ---
 
 ## 🔄 Third-Party Integrations
