@@ -43,8 +43,7 @@ A modern Android app for task management with API integration, Firebase Analytic
   Separates UI logic from business logic. ViewModel survives configuration changes, while Compose enables declarative UIs.
 - **Clean Architecture**:
   Layers:
-  - **Data**: Room, Retrofit, Firebase
-  - **Domain**: Use Cases, Repository Interfaces
+  - **Data**: Room, Retrofit, Firebase Analytics, Repository
   - **Presentation**: Compose Screens, ViewModels
 - **Dependency Injection**:
   Hilt for simplified DI and testability.

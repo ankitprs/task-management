@@ -1,7 +1,6 @@
 package com.aicallvaani.taskmanagement.data.db
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -22,6 +21,8 @@ interface TaskDao {
     suspend fun deleteAllTasks()
 
     // error
-    @Query("SELECT *, (1/0) AS 'error' FROM task_table")
-    suspend fun generateError(): List<Task>
+    @Insert
+    suspend fun generateError(task: Task) {
+        throw IllegalArgumentException("Task title cannot be empty")
+    }
 }
