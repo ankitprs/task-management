@@ -71,7 +71,7 @@ class TaskViewModel @Inject constructor(
 
     fun generateRoomDatabaseError() {
         viewModelScope.launch {
-            repository.generateError()
+            repository.generatingError()
         }
     }
 }

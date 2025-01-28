@@ -22,6 +22,6 @@ interface TaskDao {
     suspend fun deleteAllTasks()
 
     // error
-    @Delete
-    suspend fun generateError(task: Task)
+    @Query("SELECT *, (1/0) AS 'error' FROM task_table")
+    suspend fun generateError(): List<Task>
 }

@@ -1,3 +1,4 @@
+![Logo](images/app_logo.png)
 # Task Manager Android Application
 
 ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
@@ -69,32 +70,12 @@ A modern Android app for task management with API integration, Firebase Analytic
 ### Firebase Analytics
 | Event Tracking | Crash Reports | Network Performance |
 |----------------|---------------|---------------------|
-| ![Events](screenshots/events.png) | ![Crashes](screenshots/crash.png) | ![Network](screenshots/network.png) |
+| ![Events](images/events.png) | ![Crashes](images/crash.png) | ![Network](images/network.png) |
 
 ### App UI
 | Light Mode | Dark Mode | Add Task | Setting |
 |-----------|----------|----------|-----------|
 | ![Light](images/1.jpeg) | ![Dark](images/2.jpeg) | ![Add](images/3.jpeg) | ![Setting](images/4.jpeg) |
-
-**Screen Recording**: [Watch Demo](demo/demo.mp4)
-
----
-
-## 🧪 Testing
-
-### Unit Tests
-Run via Android Studio or CLI:
-```bash
-./gradlew test
-```
-- **ViewModel Tests**: Mock repository to validate business logic.
-- **Use Case Tests**: Verify task operations.
-
-### Instrumented Tests
-```bash
-./gradlew connectedAndroidTest
-```
-- **UI Tests**: Espresso tests for task creation/deletion.
 
 ---
 
@@ -113,6 +94,14 @@ Run via Android Studio or CLI:
 - **API Service**: `TaskApiService` interface for HTTP methods.
 - **Mock Data**: Uses JSONPlaceholder’s `/todos` endpoint.
 
+### Hilt (Dependency Injection)
+- **Integration**: Simplifies the injection of dependencies like `TaskDao`, `TaskRepository`, and `TaskApiService`.
+- **Modules**: Define Hilt modules for providing database and network dependencies.
+- **Injection Example**:
+  - `@InstallIn(ApplicationComponent::class)` to install the module in the app component.
+  - `@Inject` annotation for constructor injection of dependencies.
+
+
 ---
 
 ## 🚨 Troubleshooting
@@ -122,8 +111,16 @@ Run via Android Studio or CLI:
 
 ---
 
-## 📜 License
-MIT License. See [LICENSE](LICENSE) for details.
+## Production-Ready Configurations
+- **Minification**: Enabled code minification to reduce the size of the APK.
+  - `isMinifyEnabled = true`
+- **Resource Shrinking**: Shrunk unused resources to reduce the APK size.
+  - `isShrinkResources = true`
+- **Proguard Rules**: Configured Proguard rules for Room, Retrofit, and Hilt to keep essential classes and methods, preventing them from being obfuscated.
+- **Build Types**: Set up build variants for debug and release with optimized settings for production.
+  - `buildTypes { release { minifyEnabled true } }`
+
+---
 
 ## 📧 Contact
 For issues or questions, contact [ankitpr2001@gmail.com](mailto:ankitpr2001@gmail.com).

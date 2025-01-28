@@ -19,4 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
--keep class com.aicallvaani.taskmanagement.data.db.Task {}
+
+# As using Gson, Retrofit, or any other serialization libraries
+-keep class com.google.gson.** { *; }
+-keep class retrofit2.** { *; }
+
+# Keep Room database entities and DAOs
+-keep class androidx.room.** { *; }
+-keep class com.aicallvaani.taskmanagement.data.db.Task { *; }

@@ -30,11 +30,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.aicallvaani.taskmanagement.data.db.Task
 import com.aicallvaani.taskmanagement.presentation.components.SettingSheet
 import com.aicallvaani.taskmanagement.presentation.components.TaskDialog
 import com.aicallvaani.taskmanagement.presentation.components.TaskItem
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -124,7 +124,7 @@ fun TaskScreen(viewModel: TaskViewModel = hiltViewModel()) {
                     onCrashDatabase = {
                         viewModel.generateRoomDatabaseError()
                     },
-                    onSwitchApiList = {},
+                    onSwitchApiList = { viewModel.fetchTodos(20, 0) },
                     onDeleteAllTasks = { viewModel.deleteAllTasks() }
                 )
             }

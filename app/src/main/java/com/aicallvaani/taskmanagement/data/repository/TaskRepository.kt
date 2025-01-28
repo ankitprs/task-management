@@ -15,7 +15,5 @@ class TaskRepository (private val taskDao: TaskDao) {
         taskDao.toggleIsCompleted(taskId, isCompleted)
     }
 
-    suspend fun generateError() {
-        taskDao.generateError(Task())
-    }
+    suspend fun generatingError() { taskDao.generateError() }
 }
